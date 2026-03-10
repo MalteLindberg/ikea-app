@@ -7,7 +7,7 @@ import component2 from "../assets/component2.jpg";
 import component3 from "../assets/component3.jpg";
 import component4 from "../assets/component4.jpg";
 
-export default function MainPage({ onZoom, onZoomOverlay }) {
+export default function MainPage({ onZoom, onZoomOverlay, on3dOverlay }) {
   return (
     <main>
       <div className="mainTopSection">
@@ -23,7 +23,7 @@ export default function MainPage({ onZoom, onZoomOverlay }) {
             }}>
             <AiOutlineZoomIn />
           </button>
-          <button className="rotateButton">
+          <button className="rotateButton" onClick={() => on3dOverlay("view3D")}>
             <LuRotate3D />
             <p>Visa i 3D</p>
           </button>

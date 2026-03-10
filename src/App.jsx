@@ -7,6 +7,7 @@ import { MdOutlineDocumentScanner } from "react-icons/md";
 import MainPage from "./mainPage";
 import BuildPage from "./buildPage";
 import ZoomContainer from "./zoom";
+import IvarModel3D from "./ivarModel3D";
 import { IoIosClose } from "react-icons/io";
 import { VscWarning } from "react-icons/vsc";
 import warningImage1 from "../assets/warningImage1.jpg";
@@ -90,6 +91,20 @@ export default function App() {
                   <ZoomContainer />
                 </>
               )}
+              {overlay === "view3D" && (
+                <>
+                  <div className="topOverlayBar">
+                    <button className="overlayCloseButton" onClick={() => setOverlay("none")}>
+                      <IoIosClose size="3rem" />
+                    </button>
+                    <p>Visa i 3D</p>
+                  </div>
+                  <div className="view3DHintText">
+                    <p>Dra för att rotera · Nyp för att zooma</p>
+                  </div>
+                  <IvarModel3D />
+                </>
+              )}
             </div>
           </div>
         </div>
@@ -118,7 +133,7 @@ export default function App() {
           </>
         )}
       </header>
-      {page === "main" && <MainPage onZoom={setZoomImage} onZoomOverlay={setOverlay} />}
+      {page === "main" && <MainPage onZoom={setZoomImage} onZoomOverlay={setOverlay} on3dOverlay={setOverlay} />}
       {page === "build" && <BuildPage onZoom={setZoomImage} onZoomOverlay={setOverlay} />}
       <nav className="bottomNav">
         {page === "main" && (
