@@ -97,10 +97,7 @@ export default function App() {
                     <button className="overlayCloseButton" onClick={() => setOverlay("none")}>
                       <IoIosClose size="3rem" />
                     </button>
-                    <p>Visa i 3D</p>
-                  </div>
-                  <div className="view3DHintText">
-                    <p>Dra för att rotera · Nyp för att zooma</p>
+                    <p>3D</p>
                   </div>
                   <IvarModel3D />
                 </>
@@ -134,7 +131,7 @@ export default function App() {
         )}
       </header>
       {page === "main" && <MainPage onZoom={setZoomImage} onZoomOverlay={setOverlay} on3dOverlay={setOverlay} />}
-      {page === "build" && <BuildPage onZoom={setZoomImage} onZoomOverlay={setOverlay} />}
+      {page === "build" && <BuildPage currentStep={currentStep} onZoom={setZoomImage} onZoomOverlay={setOverlay} />}
       <nav className="bottomNav">
         {page === "main" && (
           <button onClick={() => setPage("build")} className="beginButton">

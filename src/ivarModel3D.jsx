@@ -11,7 +11,7 @@ export default function IvarViewer3D() {
     if (!mount) return;
 
     const width = mount.clientWidth;
-    const height = mount.clientHeight;
+    const height = mount.clientHeight / 1.05;
 
     // --- Renderer ---
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
@@ -116,7 +116,7 @@ export default function IvarViewer3D() {
         updateCamera();
       },
       undefined,
-      (err) => console.error("GLB load error:", err)
+      (err) => console.error("GLB load error:", err),
     );
 
     // --- Touch & Mouse Controls ---
@@ -276,7 +276,6 @@ export default function IvarViewer3D() {
       style={{
         width: "100%",
         flex: 1,
-        minHeight: 0,
         borderRadius: "8px",
         overflow: "hidden",
         touchAction: "none",

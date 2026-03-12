@@ -24,6 +24,22 @@ p {
   color: #000000;
 }
 
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+button {
+  outline: none;
+  border: none;
+}
+
+button:focus {
+  outline: none;
+}
+
+button:focus-visible {
+  outline: none;
+}
+
 .mainContainer {
   width: 100%;
   min-height: 100vh;
@@ -144,15 +160,23 @@ main {
   justify-content: center;
   align-items: center;
 }
+.component.wide {
+  grid-column: span 2;
+  align-self: start;
+}
 .component p {
   font-size: 0.8rem;
   font-weight: 600;
   margin: 0.3rem 0 0 0;
 }
 .component img {
-  width: 80%;
-  height: 80% !important;
+  max-width: 80%;
+  max-height: 80%;
+  width: auto;
   height: auto;
+  object-fit: contain;
+}
+.component.wide img {
 }
 .componentImageContainer {
   display: flex;
@@ -161,7 +185,10 @@ main {
   width: 100%;
   aspect-ratio: 1/1;
   border: 1px solid #00000050;
-  border-radius: 5px;
+  border-radius: 10px;
+}
+.component.wide .componentImageContainer {
+  aspect-ratio: 2/1;
 }
 .beginButton {
   display: flex;
@@ -379,10 +406,12 @@ main {
   overflow: hidden;
   position: relative;
   touch-action: none;
+  display: flex;
+  justify-content: center;
 }
 .zoomInContainer img {
   width: 100%;
-  object-fit: cover;
+  object-fit: contain;
   transform-origin: center;
   transform: scale(1);
   transition: transform 0.05s linear;
